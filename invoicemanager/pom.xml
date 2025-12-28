@@ -28,7 +28,6 @@
 	</scm>
 	<properties>
 		<java.version>21</java.version>
-		<org.mapstruct.version>1.6.3</org.mapstruct.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -90,11 +89,6 @@
         	<artifactId>hibernate-community-dialects</artifactId>
     	</dependency>
     	<dependency>
-        	<groupId>org.mapstruct</groupId>
-        	<artifactId>mapstruct</artifactId>
-        	<version>${org.mapstruct.version}</version>
-    	</dependency>
-    	<dependency>
     		<groupId>org.passay</groupId>
     		<artifactId>passay</artifactId>
     		<version>1.6.6</version>
@@ -107,7 +101,6 @@
     	<dependency>
     		<groupId>org.mockito</groupId>
     		<artifactId>mockito-core</artifactId>
-    		<version>5.12.0</version>
     		<scope>test</scope>
     	</dependency>	
 	</dependencies>
@@ -123,16 +116,6 @@
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
 						</path>
-						<path>
-                        	<groupId>org.projectlombok</groupId>
-                        	<artifactId>lombok-mapstruct-binding</artifactId>
-                        	<version>0.2.0</version>
-                    	</path>
-                    	<path>
-                        	<groupId>org.mapstruct</groupId>
-                        	<artifactId>mapstruct-processor</artifactId>
-                        	<version>${org.mapstruct.version}</version>
-                    	</path>
 					</annotationProcessorPaths>
 				</configuration>
 			</plugin>

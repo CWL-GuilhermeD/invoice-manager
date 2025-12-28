@@ -1,23 +1,28 @@
 package br.com.gdev.invoicemanager.mapper;
 
-import org.mapstruct.Mapper;
-
 import br.com.gdev.invoicemanager.dto.UserCreateDTO;
 import br.com.gdev.invoicemanager.dto.UserResponseDTO;
 import br.com.gdev.invoicemanager.dto.UserUpdateDTO;
 import br.com.gdev.invoicemanager.model.UserModel;
 
-@Mapper(componentModel = "spring")
-public interface UserMapper {
+public class UserMapper {
 	
-	UserModel convertCreateDTOToEntity(UserCreateDTO dto);
+	private UserMapper() {}
 	
-	UserModel convertUpdateDTOToEntity(UserUpdateDTO dto);
+	public static UserModel convertCreateDTOToEntity(UserCreateDTO dto) {
+		UserModel user = new UserModel();
+		user.setLogin(dto.login());
+		user.setPassword(dto.password());
+		return user;
+	}
 	
-	UserCreateDTO convertEntityToCreateDTO(UserModel entity);
+	public static UserModel convertUpdateDTOToEntity(UserUpdateDTO dto, UserModel entity) {		
+		entity.setLogin(dto.login());
+		entity.setPassword(dto.password());
+		return entity;
+	}
 	
-	UserUpdateDTO convertEntityToUpdateDTO(UserModel entity);
-	
-	UserResponseDTO convertEntityToResponseDTO(UserModel entity);
-	
+	public static UserResponseDTO convertEntityToResponseDTO(UserModel entity) {
+		return new UserResponseDTO(entity.getId(), entity.getLogin());
+	}	
 }
