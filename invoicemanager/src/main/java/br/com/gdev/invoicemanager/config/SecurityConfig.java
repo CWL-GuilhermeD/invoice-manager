@@ -2,6 +2,7 @@ package br.com.gdev.invoicemanager.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -17,9 +18,13 @@ public class SecurityConfig {
 
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-		http.csrf(csrf -> csrf.disable()).authorizeHttpRequests(
-				auth -> auth.requestMatchers("/login/register").permitAll().anyRequest().authenticated());
-		
+
+		http.csrf(Customizer.withDefaults()).httpBasic(Customizer.withDefaults())
+				.formLogin(form -> form.loginPage("/sign-in").failureUrl("/sign-in?error=true").loginProcessingUrl("/perform_login")
+						.defaultSuccessUrl("/sign-in/home", true).permitAll())
+				.authorizeHttpRequests((authorize) -> authorize.requestMatchers("/sign-in/register", "/css/**").permitAll().anyRequest().authenticated());
+
 		return http.build();
 	}
+
 }

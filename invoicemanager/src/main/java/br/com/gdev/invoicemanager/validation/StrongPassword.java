@@ -15,7 +15,7 @@ import jakarta.validation.Payload;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface StrongPassword {
 
-	String message() default "A Senha deve conter no mínimo 8 caracteres, uma letra minúscula, uma letra maiúscula, um numero e um caractere especial.";
+	String message() default "{strong.password}";
 
 	Class<?>[] groups() default {};
 	

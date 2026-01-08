@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+	<title>Registro</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">	
+</head>
+<body>
+	<form th:action="@{/sign-in/register}" th:object="${userCreateDTO}" method="post">
+		
+		<div class=pageContainer>
+		
+			<div class=fieldsContainer>
+				
+				<h1>Registre-se</h1>
+				<div class=loginContainer>		
+					<label for="login">Login:</label>
+					<input type="text" th:field="*{login}" placeholder="Login" required="required">
+					<p class=errorLogin th:if="${#fields.hasErrors('login')}" th:errors="*{login}"></p>		
+				</div>
+				
+				<div class=passwordContainer>
+					<label for="password">Password:</label>
+					<input type="password" th:field="*{password}" placeholder="Password" required="required">
+					<p class=errorPassword th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>		
+				</div>
+				
+				<button type="submit">Registrar</button>
+				<a th:href="@{/sign-in}">Voltar</a>			
+			</div>
+		</div>
+		
+		
+		
+	</form>
+</body>
+</html>

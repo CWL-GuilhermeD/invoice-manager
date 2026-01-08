@@ -1,0 +1,72 @@
+body {
+	background: #7d7df5;
+background: linear-gradient(90deg,rgba(125, 125, 245, 1) 0%, rgba(30, 63, 110, 1) 40%, rgba(137, 205, 217, 1) 90%);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.fields {
+	background: #dadcdc;
+	width: 300px;
+	height: 400px;
+	border-radius: 15px;
+	display: flex;
+	flex-direction: column;
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.login {
+	margin-bottom: 5px;
+	width: 50%;
+	margin-right: 15px;
+}
+
+.login label {
+	font: bold;
+	font-style: inherit;
+	display: block;
+	margin-bottom: 4px;
+}
+
+.password {
+	width: 50%;
+	margin-right: 15px;
+}
+
+.password label {
+	
+	font: bold;
+	font-style: inherit;
+	display: block;
+	margin-bottom: 4px;
+}
+
+.fields button{
+	margin-top: 20px;
+	
+}
+
+.fields a{
+	margin-top: 20px;
+}
+
+.fields h1 {
+	margin-top: -10px;
+}
+.fields p {
+	color: RED;
+	font:bold;
+	max-height: 3px;
+}
+

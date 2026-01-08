@@ -11,8 +11,8 @@ public class UserMapper {
 	
 	public static UserModel convertCreateDTOToEntity(UserCreateDTO dto) {
 		UserModel user = new UserModel();
-		user.setLogin(dto.login());
-		user.setPassword(dto.password());
+		user.setLogin(dto.getLogin());
+		user.setPassword(dto.getPassword());
 		return user;
 	}
 	

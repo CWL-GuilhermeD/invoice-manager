@@ -32,10 +32,9 @@ public class StrongPasswordValidation implements ConstraintValidator<StrongPassw
 		}
 		
 		context.disableDefaultConstraintViolation();
+		//String messages = String.join(", ", validator.getMessages(result));
 		
-		String messages = String.join(", ", validator.getMessages(result));
-		
-		context.buildConstraintViolationWithTemplate(messages).addConstraintViolation();
+		context.buildConstraintViolationWithTemplate("Senha fraca demais. tente outra.").addConstraintViolation();
 		
 		return false;
 	}

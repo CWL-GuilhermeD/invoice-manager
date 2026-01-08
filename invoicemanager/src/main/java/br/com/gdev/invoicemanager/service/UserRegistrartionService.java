@@ -12,7 +12,7 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class UserService {
+public class UserRegistrartionService {
 	
 	private final UserRepository repository;
 	private final PasswordEncoder passwordEncoder;
@@ -20,7 +20,7 @@ public class UserService {
 	public UserResponseDTO registerUser(UserCreateDTO dto) {
 		
 		UserModel entity = UserMapper.convertCreateDTOToEntity(dto);
-		entity.setPassword(passwordEncoder.encode(dto.password()));	
+		entity.setPassword(passwordEncoder.encode(dto.getPassword()));	
 		UserModel saveEntity = repository.save(entity);	
 		return UserMapper.convertEntityToResponseDTO(saveEntity);				
 	}

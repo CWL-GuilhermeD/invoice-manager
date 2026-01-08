@@ -7,5 +7,6 @@ import br.com.gdev.invoicemanager.model.UserModel;
 
 @Repository
 public interface UserRepository extends JpaRepository<UserModel, Long> {
-
+	
+	 UserModel findByLogin(String login);
 }
